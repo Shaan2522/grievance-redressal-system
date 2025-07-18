@@ -1,0 +1,613 @@
+.complaint-tracking-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tracking-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.tracking-header h2 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.tracking-header p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.tracking-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.tracking-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.tracking-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.tracking-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.tracking-form input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.track-btn {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.track-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.track-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  color: #e74c3c;
+  background: #fadbd8;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.complaint-details {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.details-header {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-header h3 {
+  margin: 0;
+}
+
+.details-header .ticket-id {
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.details-content {
+  padding: 2rem;
+}
+
+.basic-info {
+  margin-bottom: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-item .label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.info-item .value {
+  color: #34495e;
+  font-size: 1rem;
+}
+
+.priority-low { color: #28a745; }
+.priority-medium { color: #ffc107; }
+.priority-high { color: #fd7e14; }
+.priority-urgent { color: #dc3545; }
+
+.description,
+.address {
+  margin-bottom: 1rem;
+}
+
+.description .label,
+.address .label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.description .value,
+.address .value {
+  color: #34495e;
+  line-height: 1.5;
+}
+
+/* Status Tracker */
+.status-tracker {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tracker-header h3 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.estimated-resolution {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  z-index: 2;
+  position: relative;
+}
+
+.timeline-item.completed .timeline-icon {
+  background: #28a745;
+  color: white;
+}
+
+.timeline-item.current .timeline-icon {
+  background: #3498db;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.timeline-content {
+  text-align: center;
+}
+
+.step-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+}
+
+.step-time {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  right: -50%;
+  height: 2px;
+  background: #e9ecef;
+  z-index: 1;
+}
+
+.timeline-line.completed {
+  background: #28a745;
+}
+
+.timeline-item:last-child .timeline-line {
+  display: none;
+}
+
+.status-updates {
+  margin-top: 2rem;
+}
+
+.status-updates h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.update-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  border-left: 4px solid #3498db;
+}
+
+.update-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.update-date {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.update-officer {
+  font-size: 0.8rem;
+  color: #95a5a6;
+}
+
+.update-message {
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .details-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tracker-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .status-timeline {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .timeline-line {
+    display: none;
+  }
+  
+  .update-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-content {
+    padding: 1rem;
+  }
+  
+  .status-tracker {
+    padding: 1rem;
+  }
+  
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Photo Display Styles */
+.complaint-photo {
+  margin-bottom: 1.5rem;
+}
+
+.complaint-photo .label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.photo-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.complaint-image {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.complaint-image:hover {
+  transform: scale(1.02);
+}
+
+.photo-error {
+  background: #f8f9fa;
+  color: #7f8c8d;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Responsive Design for Photo Display */
+@media (max-width: 768px) {
+  .complaint-image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .complaint-image {
+    max-height: 200px;
+  }
+}
+
+/* Enhanced Photo Display Styles */
+.complaint-photo {
+  margin-bottom: 1.5rem;
+}
+
+.complaint-photo .label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.photo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.complaint-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #e9ecef;
+}
+
+.complaint-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-color: #3498db;
+}
+
+.photo-error {
+  background: #f8f9fa;
+  color: #7f8c8d;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.photo-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+
+.photo-container:hover .photo-hint {
+  opacity: 1;
+}
+
+.photo-hint p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Photo Modal Styles (same as admin dashboard) */
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.photo-modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.photo-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.photo-modal-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0.25rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+  background: #e9ecef;
+  color: #2c3e50;
+}
+
+.photo-modal-body {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.photo-full-size {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.photo-load-error {
+  text-align: center;
+  color: #6c757d;
+  padding: 2rem;
+}
+
+.photo-load-error p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design for Photo Display */
+@media (max-width: 768px) {
+  .complaint-image {
+    max-height: 250px;
+  }
+  
+  .photo-modal-content {
+    max-width: 95%;
+    max-height: 85%;
+  }
+  
+  .photo-modal-header {
+    padding: 0.75rem;
+  }
+  
+  .photo-modal-header h3 {
+    font-size: 1rem;
+  }
+  
+  .photo-modal-body {
+    padding: 0.75rem;
+  }
+  
+  .photo-full-size {
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .complaint-image {
+    max-height: 200px;
+  }
+  
+  .photo-modal-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .close-modal-btn {
+    font-size: 1.2rem;
+  }
+}
