@@ -1,7 +1,6 @@
 export const DEPARTMENTS = [
   'Water Supply',
   'Sanitation',
-  'Public Works',
   'Electricity',
   'Health',
   'Education',

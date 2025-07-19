@@ -17,6 +17,24 @@ const TicketDisplay = ({ ticket, onNewComplaint }) => {
     navigate('/track');
   };
 
+  const copyTicketId = () => {
+    navigator.clipboard.writeText(ticket.id).then(() => {
+      // Optional: Show a brief success message
+      const button = document.querySelector('.copy-ticket-btn');
+      const originalText = button.textContent;
+      button.textContent = 'Copied!';
+      button.style.backgroundColor = '#27ae60';
+      
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = '#3498db';
+      }, 2000);
+    }).catch(() => {
+      // Fallback for older browsers
+      alert('Ticket ID: ' + ticket.id);
+    });
+  };
+
   return (
     <div className="ticket-display">
       <div className="ticket-success">
@@ -28,7 +46,16 @@ const TicketDisplay = ({ ticket, onNewComplaint }) => {
       <div className="ticket-details">
         <div className="ticket-id">
           <h3>Your Ticket ID</h3>
-          <div className="ticket-number">{ticket.id}</div>
+          <div className="ticket-id-container">
+            <div className="ticket-number">{ticket.id}</div>
+            <button 
+              onClick={copyTicketId}
+              className="copy-ticket-btn"
+              title="Copy Ticket ID"
+            >
+              📋 Copy
+            </button>
+          </div>
           <p>Please save this ID for tracking your complaint</p>
         </div>
 
