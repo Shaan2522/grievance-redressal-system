@@ -3,7 +3,7 @@ import React from 'react';
 const StatusTracker = ({ currentStatus, updates, estimatedResolution }) => {
   const statusSteps = [
     { key: 'received', label: 'Received', icon: '📝' },
-    { key: 'in_progress', label: 'In Progress', icon: '🔄' },
+    { key: 'in_progress', label: 'Active', icon: '🔄' },
     { key: 'resolved', label: 'Resolved', icon: '✅' }
   ];
 

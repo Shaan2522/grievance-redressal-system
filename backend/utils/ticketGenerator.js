@@ -7,7 +7,7 @@ const generateTicketId = () => {
 const getStatusLabel = (status) => {
   const statusLabels = {
     'received': 'Received',
-    'in_progress': 'In Progress',
+    'in_progress': 'Active',
     'resolved': 'Resolved'
   };
   return statusLabels[status] || 'Unknown Status';

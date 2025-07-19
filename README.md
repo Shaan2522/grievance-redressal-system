@@ -15,7 +15,7 @@
 -   📊 **Analytics & Insights:** Department-wise and ward-wise complaint statistics.
 -   🔐 **Secure Authentication:** JWT-based admin authentication system.
 -   🌐 **Responsive Design:** Works seamlessly across all devices.
--   🔄 **Status Management:** Three-tier status system (Received → In Progress → Resolved).
+-   🔄 **Status Management:** Three-tier status system (Received → Active → Resolved).
 
 ## 🌟 Impact
 

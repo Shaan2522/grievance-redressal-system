@@ -43,7 +43,7 @@ const ComplaintTracking = () => {
   const getStatusLabel = (status) => {
     switch(status) {
       case 'received': return 'Received';
-      case 'in_progress': return 'In Progress';
+      case 'in_progress': return 'Active';
       case 'resolved': return 'Resolved';
       default: return 'Unknown Status';
     }

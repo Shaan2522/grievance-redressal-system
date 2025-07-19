@@ -133,7 +133,7 @@ const AdminDashboard = () => {
   const getStatusLabel = (status) => {
     switch(status) {
       case 'received': return 'Received';
-      case 'in_progress': return 'In Progress';
+      case 'in_progress': return 'Active';
       case 'resolved': return 'Resolved';
       default: return 'Unknown Status';
     }
@@ -185,7 +185,7 @@ const AdminDashboard = () => {
         </div>
         <div className="stat-card progress">
           <div className="stat-number">{stats.in_progress || 0}</div>
-          <div className="stat-label">In Progress</div>
+          <div className="stat-label">Active</div>
         </div>
         <div className="stat-card resolved">
           <div className="stat-number">{stats.resolved || 0}</div>
@@ -241,7 +241,7 @@ const AdminDashboard = () => {
           >
             <option value="all">All Statuses</option>
             <option value="received">Received</option>
-            <option value="in_progress">In Progress</option>
+            <option value="in_progress">Active</option>
             <option value="resolved">Resolved</option>
           </select>
 
@@ -343,7 +343,7 @@ const AdminDashboard = () => {
                         className="status-select"
                       >
                         <option value="received">Received</option>
-                        <option value="in_progress">In Progress</option>
+                        <option value="in_progress">Active</option>
                         <option value="resolved">Resolved</option>
                       </select>
                     </div>
