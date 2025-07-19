@@ -28,12 +28,9 @@ const CitizenForm = () => {
   const canvasRef = useRef(null);
   const fileInputRef = useRef(null);
 
-  // Enhanced input handler with better paste support
-  const handleInputChange = (e) => {
+  // Universal input handler for all events
+  const handleAllInputEvents = (e) => {
     const { name, value } = e.target;
-    
-    // Debug logging - remove in production
-    console.log(`Input changed - Field: ${name}, Value: "${value}"`);
     
     setFormData(prev => ({
       ...prev,
@@ -62,16 +59,6 @@ const CitizenForm = () => {
     const { name, value } = e.target;
     
     // Ensure state is updated on blur
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  // Universal input handler for all events
-  const handleAllInputEvents = (e) => {
-    const { name, value } = e.target;
-    
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -257,8 +244,7 @@ const CitizenForm = () => {
         submitData.append('photo', selectedPhoto);
       }
 
-      const API_BASE_URL = "https://grievance.shantanuwani.me" || '';
-      const response = await fetch(`${API_BASE_URL}/api/complaints/submit`, {
+      const response = await fetch('/api/complaints/submit', {
         method: 'POST',
         body: submitData
       });
@@ -350,7 +336,6 @@ const CitizenForm = () => {
               onBlur={handleInputBlur}
               required
               placeholder="Enter 10-digit phone number"
-              // Removed pattern attribute as it can interfere with paste
             />
           </div>
         </div>

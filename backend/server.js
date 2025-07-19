@@ -14,6 +14,9 @@ const analyticsRoutes = require('./routes/analytics');
 // Initialize Express app
 const app = express();
 
+// Whatsapp route
+// const whatsappRoutes = require('./routes/whatsapp');
+
 // Set trust proxy to fix express-rate-limit X-Forwarded-For error
 app.set('trust proxy', 1);  // Trust first proxy
 
@@ -48,6 +51,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/analytics', analyticsRoutes);
+// app.use('/api/whatsapp', whatsappRoutes); 
 
 // Health check endpoint
 app.get('/api/health', async (req, res) => {
@@ -100,3 +104,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+

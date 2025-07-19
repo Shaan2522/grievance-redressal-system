@@ -6,7 +6,7 @@ const TicketDisplay = ({ ticket, onNewComplaint }) => {
 
   const getStatusLabel = (status) => {
     switch(status) {
-      case 'received': return 'Complaint Received';
+      case 'received': return 'Received';
       case 'in_progress': return 'In Progress';
       case 'resolved': return 'Resolved';
       default: return 'Unknown Status';

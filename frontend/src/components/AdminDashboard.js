@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -18,10 +18,8 @@ const AdminDashboard = () => {
     return localStorage.getItem('adminToken');
   };
 
-  const API_BASE_URL = "https://grievance.shantanuwani.me" || '';
-
-  // Fetch complaints from API
-  const fetchComplaints = async () => {
+  // Fetch complaints from API - wrapped in useCallback to fix dependency warning
+  const fetchComplaints = useCallback(async () => {
     try {
       const token = getAuthToken();
       if (!token) {
@@ -34,7 +32,7 @@ const AdminDashboard = () => {
       if (filters.department !== 'all') queryParams.append('department', filters.department);
       if (filters.ward !== 'all') queryParams.append('ward', filters.ward);
 
-      const response = await fetch(`${API_BASE_URL}/api/complaints?${queryParams.toString()}`, {
+      const response = await fetch(`/api/complaints?${queryParams.toString()}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -53,15 +51,15 @@ const AdminDashboard = () => {
       console.error('Error fetching complaints:', error);
       setError('Error fetching complaints');
     }
-  };
+  }, [filters]);
 
-  // Fetch analytics/stats
-  const fetchStats = async () => {
+  // Fetch analytics/stats - wrapped in useCallback to fix dependency warning
+  const fetchStats = useCallback(async () => {
     try {
       const token = getAuthToken();
       if (!token) return;
 
-      const response = await fetch(`${API_BASE_URL}/api/analytics/dashboard`, {
+      const response = await fetch('/api/analytics/dashboard', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -78,9 +76,9 @@ const AdminDashboard = () => {
     } catch (error) {
       console.error('Error fetching stats:', error);
     }
-  };
+  }, []);
 
-  // Load data on component mount and filter changes
+  // Load data on component mount and filter changes - fixed dependency array
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -89,13 +87,13 @@ const AdminDashboard = () => {
     };
 
     loadData();
-  }, [filters]);
+  }, [fetchComplaints, fetchStats]);
 
   // Handle status update
   const handleStatusUpdate = async (complaintId, newStatus) => {
     try {
       const token = getAuthToken();
-      const response = await fetch(`${API_BASE_URL}/api/complaints/${complaintId}/status`, {
+      const response = await fetch(`/api/complaints/${complaintId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -151,13 +149,14 @@ const AdminDashboard = () => {
     });
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className="admin-dashboard">
-  //       <div className="loading">Loading dashboard...</div>
-  //     </div>
-  //   );
-  // }
+  // Show loading state while data is being fetched
+  if (loading) {
+    return (
+      <div className="admin-dashboard">
+        {/* <div className="loading">Loading dashboard...</div> */}
+      </div>
+    );
+  }
 
   if (error) {
     return (

@@ -1,5 +1,6 @@
 const Complaint = require('../models/Complaint');
 const { generateTicketId, getStatusLabel } = require('../utils/ticketGenerator');
+// const notificationService = require('../services/notificationService');
 
 // Submit new complaint with optional photo
 const submitComplaint = async (req, res) => {
@@ -260,6 +261,15 @@ const updateComplaintStatus = async (req, res) => {
     });
 
     await complaint.save();
+
+    // Send WhatsApp notification
+    // if (complaint.citizenInfo.phone) {
+    //   await notificationService.sendStatusUpdate(
+    //     complaint, 
+    //     status, 
+    //     message || `Your complaint status has been updated to ${getStatusLabel(status)}`
+    //   );
+    // }
 
     res.json({
       success: true,

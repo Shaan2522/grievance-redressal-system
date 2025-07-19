@@ -25,8 +25,7 @@ const AdminLogin = ({ onLogin }) => {
     try {
       console.log('Attempting login with:', credentials);
       
-      const API_BASE_URL = "https://grievance.shantanuwani.me" || '';
-      const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
+      const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
