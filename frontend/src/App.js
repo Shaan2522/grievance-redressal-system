@@ -24,8 +24,11 @@ function App() {
     localStorage.removeItem('adminData');
   };
 
+  // basename for GitHub Pages
+  const basename = process.env.NODE_ENV === 'production' ? '' : '';
+
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <Navbar 
           isAdminLoggedIn={isAdminLoggedIn}

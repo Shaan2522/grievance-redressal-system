@@ -18,7 +18,7 @@ const AdminDashboard = () => {
     return localStorage.getItem('adminToken');
   };
 
-  const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+  const API_BASE_URL = "https://grievance.shantanuwani.me" || '';
 
   // Fetch complaints from API
   const fetchComplaints = async () => {
