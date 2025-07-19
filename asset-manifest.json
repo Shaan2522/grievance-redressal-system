@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/grievance-redressal-system/static/css/main.5da55e24.css",
-    "main.js": "/grievance-redressal-system/static/js/main.9c2a174d.js",
-    "index.html": "/grievance-redressal-system/index.html",
-    "main.5da55e24.css.map": "/grievance-redressal-system/static/css/main.5da55e24.css.map",
-    "main.9c2a174d.js.map": "/grievance-redressal-system/static/js/main.9c2a174d.js.map"
+    "main.css": "/static/css/main.5da55e24.css",
+    "main.js": "/static/js/main.bc9595a0.js",
+    "index.html": "/index.html",
+    "main.5da55e24.css.map": "/static/css/main.5da55e24.css.map",
+    "main.bc9595a0.js.map": "/static/js/main.bc9595a0.js.map"
   },
   "entrypoints": [
     "static/css/main.5da55e24.css",
-    "static/js/main.9c2a174d.js"
+    "static/js/main.bc9595a0.js"
   ]
 }
