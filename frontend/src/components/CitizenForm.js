@@ -257,7 +257,8 @@ const CitizenForm = () => {
         submitData.append('photo', selectedPhoto);
       }
 
-      const response = await fetch('/api/complaints/submit', {
+      const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+      const response = await fetch(`${API_BASE_URL}/api/complaints/submit`, {
         method: 'POST',
         body: submitData
       });

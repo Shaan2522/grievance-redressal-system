@@ -18,6 +18,8 @@ const AdminDashboard = () => {
     return localStorage.getItem('adminToken');
   };
 
+  const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+
   // Fetch complaints from API
   const fetchComplaints = async () => {
     try {
@@ -32,7 +34,7 @@ const AdminDashboard = () => {
       if (filters.department !== 'all') queryParams.append('department', filters.department);
       if (filters.ward !== 'all') queryParams.append('ward', filters.ward);
 
-      const response = await fetch(`/api/complaints?${queryParams.toString()}`, {
+      const response = await fetch(`${API_BASE_URL}/api/complaints?${queryParams.toString()}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -59,7 +61,7 @@ const AdminDashboard = () => {
       const token = getAuthToken();
       if (!token) return;
 
-      const response = await fetch('/api/analytics/dashboard', {
+      const response = await fetch(`${API_BASE_URL}/api/analytics/dashboard`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -93,7 +95,7 @@ const AdminDashboard = () => {
   const handleStatusUpdate = async (complaintId, newStatus) => {
     try {
       const token = getAuthToken();
-      const response = await fetch(`/api/complaints/${complaintId}/status`, {
+      const response = await fetch(`${API_BASE_URL}/api/complaints/${complaintId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

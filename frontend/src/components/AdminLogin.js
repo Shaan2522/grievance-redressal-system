@@ -25,7 +25,8 @@ const AdminLogin = ({ onLogin }) => {
     try {
       console.log('Attempting login with:', credentials);
       
-      const response = await fetch('/api/admin/login', {
+      const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+      const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

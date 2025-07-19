@@ -15,7 +15,8 @@ const ComplaintTracking = () => {
     setError('');
 
     try {
-      const response = await fetch(`/api/complaints/track/${ticketId}`);
+      const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+      const response = await fetch(`${API_BASE_URL}/api/complaints/track/${ticketId}`);
       const data = await response.json();
       
       if (data.success) {
