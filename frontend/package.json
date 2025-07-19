@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://Shaan2522.github.io/grievance-redressal-system",
+  "homepage": "https://grievance.shantanuwani.me/",
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
