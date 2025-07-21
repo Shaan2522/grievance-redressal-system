@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const WhatsAppBot = require('./services/whatsappBot');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
@@ -16,6 +17,19 @@ const app = express();
 
 // Whatsapp route
 const whatsappRoutes = require('./routes/whatsapp');
+
+// Initialize WhatsApp bot in development
+if (process.env.NODE_ENV === 'development') {
+  const whatsappBot = new WhatsAppBot();
+  whatsappBot.start();
+  
+  // Graceful shutdown
+  process.on('SIGINT', async () => {
+    console.log('Shutting down WhatsApp bot...');
+    await whatsappBot.stop();
+    process.exit(0);
+  });
+}
 
 // Set trust proxy to fix express-rate-limit X-Forwarded-For error
 app.set('trust proxy', 1);  // Trust first proxy

@@ -15,7 +15,7 @@ const LandingPage = () => {
 
   const handleWhatsAppChat = () => {
     // WhatsApp Business number - replace with actual number
-    const whatsappNumber = '+917977812345'; // Replace with your WhatsApp Business number
+    const whatsappNumber = '+971583087646'; // Replace with your WhatsApp Business number
     const message = 'Hi! I want to submit a complaint through WhatsApp chatbot.';
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -417,7 +417,7 @@ const LandingPage = () => {
           
           <div className="footer-section">
             <h4>Contact Info</h4>
-            <p>💬 WhatsApp: +91 79778 12345</p>
+            <p>💬 WhatsApp: +91 79778 08912</p>
             <p>📧 Email: support@citygrievance.gov.in</p>
             <p>📞 Phone: +91-1262-XXX-XXX</p>
             <p>🏢 District Collectorate</p>
